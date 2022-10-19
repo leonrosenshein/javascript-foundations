@@ -1,14 +1,14 @@
 class Hobbit {
     constructor(hobbit) {
+        this.name = hobbit.name
+        this.age = 0
+        this.adult = false
+        this.old = false
         if (this.name === 'Frodo') {
             this.hasRing = true
         } else {
             this.hasRing = false
         }
-        this.name = hobbit.name
-        this.age = 0
-        this.adult = false
-        this.old = false
     }
     celebrateBirthday() {
         this.age = this.age + 1
@@ -20,10 +20,12 @@ class Hobbit {
         }
     }
     getRing() {
-        if (this.hasRing === false) {
+        if (this.hasRing) {
             return `Here is the ring!`
         } else {
-            return `You can\`t have it!`
+            return `You can\'t have it!`
         }
     }
 }
+
+module.exports = Hobbit
