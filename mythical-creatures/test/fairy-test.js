@@ -6,7 +6,7 @@ describe('Fairy', () => {
     it('should have a name and some fairy dust by default', () => {
         const fairy = new Fairy('Mab');
 
-        assert.equal(fairy.name, Mab);
+        assert.equal(fairy.name, 'Mab');
         assert.equal(fairy.dust, 10);
     });
 

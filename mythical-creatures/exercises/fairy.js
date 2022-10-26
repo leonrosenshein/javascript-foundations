@@ -6,7 +6,7 @@ class Fairy {
         this.dust = 10
         this.humanWards = []
         this.clothes = {
-            dresses["Iris"]
+            dresses: ["Iris"]
         }
     }
 
@@ -14,8 +14,12 @@ class Fairy {
         this.dust += 10
     }
 
+    receiveBelief() {
+        this.dust += 1
+    }
+
     makeDresses(newDresses) {
-        this.clothes.dresses.push(newDresses)
+        this.clothes.dresses = this.clothes.dresses.concat(newDresses)
     }
 
     becomeProvoked() {
@@ -25,13 +29,15 @@ class Fairy {
     replaceInfant(infant) {
         if (this.disposition == "Vengeful") {
             infant.disposition = "Malicious"
+
+            this.humanWards.push(infant)
+
+            if (this.humanWards.length >= 3) {
+                this.disposition = "Good natured"
+            }
         }
 
-        this.humanWards.push(infant)
-
-        if (this.humanWards.length >= 3) {
-            this.disposition = "Good natured"
-        }
+        return infant
     }
 }
 
